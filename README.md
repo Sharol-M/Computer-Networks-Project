@@ -99,3 +99,4 @@ PC1 and PC2 can communicate across the network
 Static routes are correctly configured and verified
 
 Neighbor discovery and routing tables show expected entries
+Packets can move from one LAN to another
