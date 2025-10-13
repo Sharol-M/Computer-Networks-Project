@@ -109,8 +109,10 @@ Neighbor discovery and routing tables show expected entries
 
 Packets can move from one LAN to another
 
-Hybrid-Configuration-
+# Hybrid-Configuration-
+
 🌐 Hybrid Network Topology – Cisco Packet Tracer Project
+
 
 📘 Overview
 
@@ -134,14 +136,18 @@ Enforce basic network security through device hardening and secure remote access
 
 🧩 Network Architecture
 
+
 ⚙️ Topology Components
 
-Component	Quantity	Function
-Router	1	Core routing and inter-VLAN gateway
-Distribution Switch	1	VLAN trunking and aggregation layer
-Access Switches	17	Topology-specific switching
-Server	1	DHCP, DNS, HTTP services
-End Devices (PCs)	17	Client workstations in each topology
+
+| Component | Quantity | Function |
+|------------|-----------|-----------|
+| Router | 1 | Core routing and inter-VLAN gateway |
+| Distribution Switch | 1 | VLAN trunking and aggregation layer |
+| Access Switches | 17 | Topology-specific switching |
+| Server | 1 | DHCP, DNS, HTTP services |
+| End Devices (PCs) | 17 | Client workstations in each topology |
+
 🕸 Topology Breakdown
 
 Ring Topology (VLAN 20)
@@ -182,28 +188,42 @@ Hierarchical structure with 3 switches
 
 Supports scalability and simplified troubleshooting
 
-🌍 IP Addressing Scheme IPv4 Configuration
-
 🌍 IP Addressing Scheme
 IPv4 Configuration
-VLAN	Network	Subnet Mask	Gateway	DHCP Range	Description
-10	192.168.10.0/24	255.255.255.0	192.168.10.1	192.168.10.20–70	Management/Server
-20	192.168.20.0/24	255.255.255.0	192.168.20.1	192.168.20.10–60	Ring Network
-30	192.168.30.0/24	255.255.255.0	192.168.30.1	192.168.30.10–60	Bus Network
-40	192.168.40.0/24	255.255.255.0	192.168.40.1	192.168.40.10–60	Mesh Network
-50	192.168.50.0/24	255.255.255.0	192.168.50.1	192.168.50.10–60	Star Network
-60	192.168.60.0/24	255.255.255.0	192.168.60.1	192.168.60.10–60	Extended Star
-IPv6 Configuration
-VLAN	IPv6 Network	Gateway	Description
-10	2001:DB8:10::/64	2001:DB8:10::1	Management/Server
-20	2001:DB8:20::/64	2001:DB8:20::1	Ring Network
-30	2001:DB8:30::/64	2001:DB8:30::1	Bus Network
-40	2001:DB8:40::/64	2001:DB8:40::1	Mesh Network
-50	2001:DB8:50::/64	2001:DB8:50::1	Star Network
-60	2001:DB8:60::/64	2001:DB8:60::1	Extended Star
-🧠 Configuration Highlights			
-🖧 Core Router – Cisco 1941			
-Hostname: Core-Router Function: Layer 3 routing and inter-VLAN communication
+
+
+---
+
+## 🌍 IP Addressing Scheme
+
+### IPv4 Configuration
+
+| VLAN | Network | Subnet Mask | Gateway | DHCP Range | Description |
+|------|----------|--------------|----------|-------------|--------------|
+| 10 | 192.168.10.0/24 | 255.255.255.0 | 192.168.10.1 | 192.168.10.20–70 | Management/Server |
+| 20 | 192.168.20.0/24 | 255.255.255.0 | 192.168.20.1 | 192.168.20.10–60 | Ring Network |
+| 30 | 192.168.30.0/24 | 255.255.255.0 | 192.168.30.1 | 192.168.30.10–60 | Bus Network |
+| 40 | 192.168.40.0/24 | 255.255.255.0 | 192.168.40.1 | 192.168.40.10–60 | Mesh Network |
+| 50 | 192.168.50.0/24 | 255.255.255.0 | 192.168.50.1 | 192.168.50.10–60 | Star Network |
+| 60 | 192.168.60.0/24 | 255.255.255.0 | 192.168.60.1 | 192.168.60.10–60 | Extended Star |
+
+---
+
+### IPv6 Configuration
+
+| VLAN | IPv6 Network | Gateway | Description |
+|------|---------------|----------|--------------|
+| 10 | 2001:DB8:10::/64 | 2001:DB8:10::1 | Management/Server |
+| 20 | 2001:DB8:20::/64 | 2001:DB8:20::1 | Ring Network |
+| 30 | 2001:DB8:30::/64 | 2001:DB8:30::1 | Bus Network |
+| 40 | 2001:DB8:40::/64 | 2001:DB8:40::1 | Mesh Network |
+| 50 | 2001:DB8:50::/64 | 2001:DB8:50::1 | Star Network |
+| 60 | 2001:DB8:60::/64 | 2001:DB8:60::1 | Extended Star |
+🧠 Configuration Highlights
+🖧 Core Router – Cisco 1941
+
+Hostname: Core-Router
+Function: Layer 3 routing and inter-VLAN communication
 
 Key Features:
 
@@ -217,7 +237,8 @@ Secure management access (SSH, encrypted passwords)
 
 🔀 Distribution Switch – Cisco 2960-24TT
 
-Hostname: Dist-SW Function: VLAN trunking and central distribution layer
+Hostname: Dist-SW
+Function: VLAN trunking and central distribution layer
 
 Configurations:
 
@@ -231,7 +252,9 @@ Access port for server (Fa0/1 → VLAN 10)
 
 🖥 Server Configuration
 
-Hostname: Server0 IPv4: 192.168.10.10/24 IPv6: 2001:DB8:10::10/64
+Hostname: Server0
+IPv4: 192.168.10.10/24
+IPv6: 2001:DB8:10::10/64
 
 Services Deployed:
 
@@ -241,7 +264,9 @@ DNS Server: Internal domain mycompany.com
 
 HTTP Server: Basic enterprise web service
 
-📁 Project Structure
+## 📁 Project Structure
+
+```
 Hybrid-Network-Topology/
 ├── README.md
 ├── Topology_Diagram.png
@@ -252,6 +277,8 @@ Hybrid-Network-Topology/
 │   └── VLAN_Config.txt
 └── Documentation/
     └── Network_Report.pdf
+```
+
 🔒 Security Implementations
 
 SSH access for secure remote device management
@@ -281,7 +308,6 @@ Troubleshooting and testing using Packet Tracer simulation tools
 Cisco Packet Tracer 8.x
 
 Cisco IOS (Router 1941, Switch 2960)
-
 IPv4 / IPv6 Protocols
 
 DHCP, DNS, HTTP Services
