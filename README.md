@@ -67,36 +67,44 @@ end
 write memory
 
 
-Static Route Summary
-Router	Destination Network	Next Hop Address
-R0	2001:DB8:1:2::/64	2001:DB8:3:1::2
-R0	2001:DB8:3:2::/64	2001:DB8:3:1::2
-R1	2001:DB8:1:1::/64	2001:DB8:3:1::1
-R1	2001:DB8:1:2::/64	2001:DB8:3:2::1
-R2	2001:DB8:1:1::/64	2001:DB8:3:2::2
-R2	2001:DB8:3:1::/64	2001:DB8:3:2::2
+
 
 
  Testing Commands
+ 
 From R0
-bash
+
+
 ping ipv6 2001:DB8:3:2::1
+
 ping ipv6 2001:DB8:1:2::10
+
 traceroute ipv6 2001:DB8:1:2::10
+
 From PC1
-bash
+
+
 ping ipv6 2001:DB8:1:2::10
+
 From PC2
-bash
+
+
 ping ipv6 2001:DB8:1:1::10
 
 
 Success Criteria
+
+
 All routers can ping each other’s interfaces
+
 
 PC1 and PC2 can communicate across the network
 
+
 Static routes are correctly configured and verified
 
+
 Neighbor discovery and routing tables show expected entries
+
+
 Packets can move from one LAN to another
