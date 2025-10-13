@@ -1,10 +1,10 @@
 # Computer-Networks-Project
-📘 Project Description
+Project Description
 This project demonstrates a fully functional IPv6 static routing topology using Cisco routers and PCs. It consists of three routers (R0, R1, R2), each connected to a LAN segment with PCs. The routers are interconnected via point-to-point links, and static routes are manually configured to enable end-to-end communication across the network.
 
 The goal is to achieve full IPv6 connectivity between all LANs and router interfaces, validate routing logic, and troubleshoot any asymmetric or unreachable paths using CLI diagnostics like ping, traceroute, and show ipv6 route.
 
-🧱 Topology Overview
+ Topology Overview
 Code
 PC1 --- R0 --- R1 --- R2 --- PC2
 Router 0 (R0) connects to PC1 via LAN1
@@ -13,7 +13,7 @@ Router 1 (R1) acts as the transit router between R0 and R2
 
 Router 2 (R2) connects to PC2 via LAN2
 
-🧾 IPv6 Address Table
+ IPv6 Address Table
 Device	Interface	IPv6 Address	Purpose
 R0	GigabitEthernet0/0	2001:DB8:3:1::1/64	Link to R1
 R0	GigabitEthernet0/1	2001:DB8:1:1::1/64	LAN for PC1
@@ -23,7 +23,9 @@ R2	GigabitEthernet0/0	2001:DB8:3:2::1/64	Link to R1
 R2	GigabitEthernet0/1	2001:DB8:1:2::1/64	LAN for PC2
 PC1	NIC	2001:DB8:1:1::10/64	Host in R0’s LAN
 PC2	NIC	2001:DB8:1:2::10/64	Host in R2’s LAN
-⚙️ Full Configuration for Router 0 (R0)
+
+
+ Full Configuration for Router 0 (R0)
 bash
 enable
 configure terminal
@@ -46,7 +48,9 @@ ipv6 route 2001:DB8:3:2::/64 2001:DB8:3:1::2
 
 end
 write memory
-⚙️ Static Route Summary
+
+
+Static Route Summary
 Router	Destination Network	Next Hop Address
 R0	2001:DB8:1:2::/64	2001:DB8:3:1::2
 R0	2001:DB8:3:2::/64	2001:DB8:3:1::2
@@ -54,7 +58,9 @@ R1	2001:DB8:1:1::/64	2001:DB8:3:1::1
 R1	2001:DB8:1:2::/64	2001:DB8:3:2::1
 R2	2001:DB8:1:1::/64	2001:DB8:3:2::2
 R2	2001:DB8:3:1::/64	2001:DB8:3:2::2
-🧪 Testing Commands
+
+
+ Testing Commands
 From R0
 bash
 ping ipv6 2001:DB8:3:2::1
@@ -66,7 +72,9 @@ ping ipv6 2001:DB8:1:2::10
 From PC2
 bash
 ping ipv6 2001:DB8:1:1::10
-✅ Success Criteria
+
+
+Success Criteria
 All routers can ping each other’s interfaces
 
 PC1 and PC2 can communicate across the network
