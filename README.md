@@ -13,16 +13,33 @@ Router 1 (R1) acts as the transit router between R0 and R2
 
 Router 2 (R2) connects to PC2 via LAN2
 
- IPv6 Address Table
-Device	Interface	IPv6 Address	Purpose
-R0	GigabitEthernet0/0	2001:DB8:3:1::1/64	Link to R1
-R0	GigabitEthernet0/1	2001:DB8:1:1::1/64	LAN for PC1
-R1	GigabitEthernet0/0	2001:DB8:3:2::2/64	Link to R2
-R1	GigabitEthernet0/1	2001:DB8:3:1::2/64	Link to R0
-R2	GigabitEthernet0/0	2001:DB8:3:2::1/64	Link to R1
-R2	GigabitEthernet0/1	2001:DB8:1:2::1/64	LAN for PC2
-PC1	NIC	2001:DB8:1:1::10/64	Host in R0’s LAN
-PC2	NIC	2001:DB8:1:2::10/64	Host in R2’s LAN
+IPV6 Addresses
+
+| Device | Interface          | IPv6 Address                    | Purpose          |
+| ------ | ------------------ | ------------------------------- | ---------------- |
+| R0     | GigabitEthernet0/0 | 2001:DB8:3:1::1/64              | Link to R1       |
+| R0     | GigabitEthernet0/1 | 2001:DB8:1:1::1/64              | LAN for PC1      |
+| R1     | GigabitEthernet0/0 | 2001:DB8:3:2::2/64              | Link to R2       |
+| R1     | GigabitEthernet0/1 | 2001:DB8:3:1::2/64              | Link to R0       |
+| R2     | GigabitEthernet0/0 | 2001:DB8:3:2::1/64              | Link to R1       |
+| R2     | GigabitEthernet0/1 | 2001:DB8:1:2::1/64              | LAN for PC2      |
+| PC1    | NIC                | 2001:DB8:1:1:202:16FF:FE18:5893 | Host in R0’s LAN |
+| PC2    | NIC                | 2001:DB8:1:1:250:FFF:FE13:50DA  | Host in R0’s LAN |
+| PC3    | NIC                | 2001:DB8:1:2:2D0:BCFF:FE63:D7BD | Host in R2’s LAN |
+| PC4    | NIC                | 2001:DB8:1:2:260:47FF:FED3:9282 | Host in R2’s LAN |
+
+
+
+Static ipv6 Routing
+| Router | Destination Network | Next Hop Address | Purpose                        |
+| ------ | ------------------- | ---------------- | ------------------------------ |
+| R0     | 2001:DB8:1:2::/64   | 2001:DB8:3:1::2  | Route to R2’s LAN via R1       |
+| R0     | 2001:DB8:3:2::/64   | 2001:DB8:3:1::2  | Route to R2’s interface via R1 |
+| R1     | 2001:DB8:1:1::/64   | 2001:DB8:3:1::1  | Route to R0’s LAN via R0       |
+| R1     | 2001:DB8:1:2::/64   | 2001:DB8:3:2::1  | Route to R2’s LAN via R2       |
+| R2     | 2001:DB8:1:1::/64   | 2001:DB8:3:2::2  | Route to R0’s LAN via R1       |
+| R2     | 2001:DB8:3:1::/64   | 2001:DB8:3:2::2  | Route to R0’s interface via R1 |
+
 
 
  Full Configuration for Router 0 (R0)
